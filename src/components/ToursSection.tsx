@@ -1,55 +1,64 @@
 import { motion } from 'framer-motion';
-import { Wine, Mountain, Droplets, Camera, TreePine, Bike, Users, Clock, CreditCard, Banknote } from 'lucide-react';
+import { Clock, Users, CreditCard, Banknote, MapPin, Star, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+
+import tourBodegas from '@/assets/tour-bodegas.jpg';
+import tourMontana from '@/assets/tour-montana.jpg';
+import tourRafting from '@/assets/tour-rafting.jpg';
+import tourCabalgata from '@/assets/tour-cabalgata.jpg';
 
 const tours = [
   {
-    icon: Wine,
-    title: 'Tour de Bodegas',
-    description: 'Recorre las mejores bodegas de Luján de Cuyo y Valle de Uco. Degustación de vinos premium y almuerzo gourmet.',
+    image: tourBodegas,
+    title: 'Tour de Bodegas Premium',
+    subtitle: 'Luján de Cuyo & Valle de Uco',
+    description: 'Recorre las mejores bodegas de Mendoza con degustación de vinos de alta gama y almuerzo gourmet maridaje.',
     duration: '8 horas',
-    price: 'Desde $45.000',
-    includes: ['Transporte', 'Guía bilingüe', '4 bodegas', 'Almuerzo'],
+    groupSize: '2-8 personas',
+    price: 45000,
+    rating: 4.9,
+    reviews: 127,
+    includes: ['Transporte privado', 'Guía sommelier', '4 bodegas premium', 'Almuerzo maridaje', 'Degustación 12 vinos'],
+    highlight: 'Más Popular',
   },
   {
-    icon: Mountain,
-    title: 'Alta Montaña',
-    description: 'Visita el Aconcagua, Puente del Inca, Las Cuevas y la frontera con Chile. Paisajes de ensueño.',
+    image: tourMontana,
+    title: 'Alta Montaña Expedition',
+    subtitle: 'Aconcagua, Puente del Inca & Las Cuevas',
+    description: 'Viaja a lo más alto de los Andes. Conoce el Aconcagua, el mítico Puente del Inca y la frontera con Chile.',
     duration: 'Full day',
-    price: 'Desde $38.000',
-    includes: ['Transporte 4x4', 'Guía', 'Snacks', 'Seguro'],
+    groupSize: '2-12 personas',
+    price: 38000,
+    rating: 4.8,
+    reviews: 89,
+    includes: ['Transporte 4x4', 'Guía bilingüe', 'Snacks y bebidas', 'Seguro de viaje', 'Paradas fotográficas'],
+    highlight: 'Imperdible',
   },
   {
-    icon: Droplets,
-    title: 'Rafting en el Mendoza',
-    description: 'Aventura de rafting en los rápidos del río Mendoza. Todos los niveles de experiencia.',
+    image: tourRafting,
+    title: 'Rafting Aventura',
+    subtitle: 'Río Mendoza - Potrerillos',
+    description: 'Adrenalina pura navegando los rápidos del río Mendoza. Apto para todos los niveles de experiencia.',
     duration: '4 horas',
-    price: 'Desde $32.000',
-    includes: ['Equipo completo', 'Instructor', 'Traslado', 'Seguro'],
+    groupSize: '4-10 personas',
+    price: 32000,
+    rating: 4.9,
+    reviews: 156,
+    includes: ['Equipo completo', 'Instructor certificado', 'Traslado', 'Seguro', 'Fotos y videos'],
+    highlight: 'Aventura',
   },
   {
-    icon: Camera,
-    title: 'City Tour Mendoza',
-    description: 'Conoce la ciudad, el Cerro de la Gloria, Parque San Martín y los principales puntos históricos.',
-    duration: '4 horas',
-    price: 'Desde $18.000',
-    includes: ['Transporte', 'Guía', 'Entradas'],
-  },
-  {
-    icon: TreePine,
+    image: tourCabalgata,
     title: 'Cabalgata Andina',
-    description: 'Paseo a caballo por senderos de montaña con vistas panorámicas de los Andes y asado criollo.',
+    subtitle: 'Cordillera de los Andes',
+    description: 'Paseo a caballo por senderos de montaña con vistas panorámicas espectaculares y asado criollo incluido.',
     duration: '6 horas',
-    price: 'Desde $55.000',
-    includes: ['Caballo', 'Guía', 'Asado', 'Traslado'],
-  },
-  {
-    icon: Bike,
-    title: 'Bike & Wine',
-    description: 'Recorre bodegas en bicicleta por caminos rurales de Maipú. Experiencia única y eco-friendly.',
-    duration: '5 horas',
-    price: 'Desde $28.000',
-    includes: ['Bicicleta', 'Casco', 'Mapa', '3 bodegas'],
+    groupSize: '2-8 personas',
+    price: 55000,
+    rating: 5.0,
+    reviews: 64,
+    includes: ['Caballo manso', 'Guía gaucho', 'Asado completo', 'Traslado', 'Vino de la casa'],
+    highlight: 'Exclusivo',
   },
 ];
 
@@ -71,11 +80,12 @@ const ToursSection = () => {
           </h2>
           <p className="font-sans text-muted-foreground max-w-2xl mx-auto">
             Descubre los tesoros de Mendoza con nuestros tours exclusivos. 
-            Desde catas de vino hasta aventuras en la montaña, tenemos la experiencia perfecta para ti.
+            Desde catas de vino hasta aventuras extremas, tenemos la experiencia perfecta para ti.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        {/* Tours Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
           {tours.map((tour, index) => (
             <motion.div
               key={index}
@@ -85,46 +95,90 @@ const ToursSection = () => {
               transition={{ delay: index * 0.1 }}
               className="bg-card rounded-2xl overflow-hidden shadow-soft hover:shadow-elevated transition-all duration-300 group"
             >
-              <div className="p-6">
-                <div className="flex items-start justify-between mb-4">
-                  <div className="w-14 h-14 rounded-xl bg-mountain/10 flex items-center justify-center group-hover:bg-gold/20 transition-colors">
-                    <tour.icon className="w-7 h-7 text-mountain group-hover:text-gold transition-colors" />
+              <div className="flex flex-col md:flex-row">
+                {/* Image */}
+                <div className="relative md:w-2/5 h-64 md:h-auto overflow-hidden">
+                  <img
+                    src={tour.image}
+                    alt={tour.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute top-4 left-4">
+                    <span className="bg-gold text-white text-xs font-semibold px-3 py-1 rounded-full">
+                      {tour.highlight}
+                    </span>
                   </div>
-                  <div className="text-right">
-                    <span className="font-serif text-xl font-bold text-gold">{tour.price}</span>
-                    <div className="flex items-center gap-1 text-muted-foreground text-sm">
-                      <Clock className="w-3.5 h-3.5" />
-                      <span>{tour.duration}</span>
+                  <div className="absolute bottom-4 left-4 flex items-center gap-1 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-lg">
+                    <Star className="w-4 h-4 fill-gold text-gold" />
+                    <span className="font-sans text-sm font-semibold">{tour.rating}</span>
+                    <span className="font-sans text-xs text-muted-foreground">({tour.reviews})</span>
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="md:w-3/5 p-6">
+                  <div className="flex items-start justify-between mb-2">
+                    <div>
+                      <h3 className="font-serif text-xl font-bold text-foreground">
+                        {tour.title}
+                      </h3>
+                      <div className="flex items-center gap-1 text-muted-foreground text-sm">
+                        <MapPin className="w-3.5 h-3.5" />
+                        <span>{tour.subtitle}</span>
+                      </div>
                     </div>
                   </div>
-                </div>
-                
-                <h3 className="font-serif text-xl font-bold text-foreground mb-2">
-                  {tour.title}
-                </h3>
-                <p className="font-sans text-sm text-muted-foreground mb-4 leading-relaxed">
-                  {tour.description}
-                </p>
 
-                <div className="border-t border-border pt-4 mb-4">
-                  <span className="font-sans text-xs text-muted-foreground uppercase tracking-wider mb-2 block">
-                    Incluye:
-                  </span>
-                  <div className="flex flex-wrap gap-2">
-                    {tour.includes.map((item, i) => (
-                      <span
-                        key={i}
-                        className="font-sans text-xs bg-sand px-2.5 py-1 rounded-full text-foreground"
-                      >
-                        {item}
-                      </span>
-                    ))}
+                  <p className="font-sans text-sm text-muted-foreground mb-4 leading-relaxed">
+                    {tour.description}
+                  </p>
+
+                  <div className="flex items-center gap-4 mb-4 text-sm text-muted-foreground">
+                    <div className="flex items-center gap-1">
+                      <Clock className="w-4 h-4" />
+                      <span>{tour.duration}</span>
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <Users className="w-4 h-4" />
+                      <span>{tour.groupSize}</span>
+                    </div>
+                  </div>
+
+                  <div className="mb-4">
+                    <span className="font-sans text-xs text-muted-foreground uppercase tracking-wider block mb-2">
+                      Incluye:
+                    </span>
+                    <div className="flex flex-wrap gap-1.5">
+                      {tour.includes.slice(0, 3).map((item, i) => (
+                        <span
+                          key={i}
+                          className="font-sans text-xs bg-sand px-2 py-1 rounded-full text-foreground"
+                        >
+                          {item}
+                        </span>
+                      ))}
+                      {tour.includes.length > 3 && (
+                        <span className="font-sans text-xs text-gold font-medium">
+                          +{tour.includes.length - 3} más
+                        </span>
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="flex items-center justify-between pt-4 border-t border-border">
+                    <div>
+                      <span className="font-sans text-xs text-muted-foreground">Desde</span>
+                      <p className="font-serif text-2xl font-bold text-gold">
+                        ${tour.price.toLocaleString()}
+                        <span className="font-sans text-sm text-muted-foreground font-normal"> /persona</span>
+                      </p>
+                    </div>
+                    <Button className="bg-mountain hover:bg-mountain/90 text-white gap-2">
+                      Reservar
+                      <ChevronRight className="w-4 h-4" />
+                    </Button>
                   </div>
                 </div>
-
-                <Button className="w-full bg-mountain hover:bg-mountain/90 text-white">
-                  Reservar Tour
-                </Button>
               </div>
             </motion.div>
           ))}
