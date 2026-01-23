@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import logo from '@/assets/logo.png';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -38,9 +39,11 @@ const Header = () => {
     >
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2">
-          <span className="font-serif text-2xl font-bold text-primary">
-            Refugio<span className="text-gold">Mendoza</span>
-          </span>
+          <img 
+            src={logo} 
+            alt="Temporarios Mendoza" 
+            className="h-12 w-12 rounded-full object-cover"
+          />
         </Link>
 
         {/* Desktop Navigation */}
