@@ -1,8 +1,6 @@
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, Instagram, Facebook } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
+import { Mail, Phone, MapPin, Instagram, Facebook } from 'lucide-react';
+import RentalBookingForm from '@/components/RentalBookingForm';
 
 const ContactSection = () => {
   return (
@@ -16,16 +14,16 @@ const ContactSection = () => {
             viewport={{ once: true }}
           >
             <span className="font-sans text-sm text-gold font-semibold tracking-wider uppercase mb-4 block">
-              Contacto
+              Reservas
             </span>
             <h2 className="font-serif text-4xl md:text-5xl font-bold mb-6">
-              ¿Listo para tu
+              Reserva tu
               <br />
-              <span className="text-gold">Próxima Aventura?</span>
+              <span className="text-gold">Estadía Perfecta</span>
             </h2>
             <p className="font-sans text-primary-foreground/80 mb-8 leading-relaxed">
-              Estamos aquí para ayudarte a planificar tu estadía perfecta en Mendoza. 
-              Contáctanos para consultas, reservas o cualquier pregunta que tengas.
+              Completa el formulario con tus fechas de interés y la propiedad que deseas. 
+              Te contactaremos para confirmar disponibilidad y coordinar todos los detalles de tu estadía.
             </p>
 
             <div className="space-y-6 mb-8">
@@ -76,53 +74,15 @@ const ContactSection = () => {
             </div>
           </motion.div>
 
-          {/* Form */}
+          {/* Booking Form */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
             <div className="bg-card text-foreground rounded-2xl p-8 shadow-elevated">
-              <h3 className="font-serif text-2xl font-bold mb-6">Envíanos un Mensaje</h3>
-
-              <form className="space-y-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="font-sans text-sm font-medium mb-2 block">
-                      Nombre
-                    </label>
-                    <Input placeholder="Tu nombre" />
-                  </div>
-                  <div>
-                    <label className="font-sans text-sm font-medium mb-2 block">
-                      Email
-                    </label>
-                    <Input type="email" placeholder="tu@email.com" />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="font-sans text-sm font-medium mb-2 block">
-                    Teléfono
-                  </label>
-                  <Input placeholder="+54 9 261..." />
-                </div>
-
-                <div>
-                  <label className="font-sans text-sm font-medium mb-2 block">
-                    Mensaje
-                  </label>
-                  <Textarea
-                    placeholder="Cuéntanos sobre tu viaje, fechas de interés, cantidad de personas..."
-                    rows={4}
-                  />
-                </div>
-
-                <Button variant="gold" size="lg" className="w-full">
-                  <Send className="w-4 h-4 mr-2" />
-                  Enviar Consulta
-                </Button>
-              </form>
+              <h3 className="font-serif text-2xl font-bold mb-6">Solicitar Reserva</h3>
+              <RentalBookingForm />
             </div>
           </motion.div>
         </div>

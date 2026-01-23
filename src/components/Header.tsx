@@ -1,11 +1,14 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,10 +19,11 @@ const Header = () => {
   }, []);
 
   const navLinks = [
-    { href: '#propiedades', label: 'Propiedades' },
-    { href: '#servicios', label: 'Servicios' },
-    { href: '#pagos', label: 'Pagos' },
-    { href: '#contacto', label: 'Contacto' },
+    { href: isHomePage ? '#propiedades' : '/#propiedades', label: 'Propiedades', isAnchor: isHomePage },
+    { href: '/tours', label: 'Tours', isAnchor: false },
+    { href: isHomePage ? '#testimonios' : '/#testimonios', label: 'Testimonios', isAnchor: isHomePage },
+    { href: isHomePage ? '#pagos' : '/#pagos', label: 'Pagos', isAnchor: isHomePage },
+    { href: isHomePage ? '#contacto' : '/#contacto', label: 'Contacto', isAnchor: isHomePage },
   ];
 
   return (
@@ -33,28 +37,42 @@ const Header = () => {
       }`}
     >
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-        <a href="#" className="flex items-center gap-2">
+        <Link to="/" className="flex items-center gap-2">
           <span className="font-serif text-2xl font-bold text-primary">
             Refugio<span className="text-gold">Mendoza</span>
           </span>
-        </a>
+        </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className={`font-sans text-sm font-medium transition-colors hover:text-gold ${
-                isScrolled ? 'text-foreground' : 'text-primary-foreground'
-              }`}
-            >
-              {link.label}
-            </a>
+            link.isAnchor ? (
+              <a
+                key={link.href}
+                href={link.href}
+                className={`font-sans text-sm font-medium transition-colors hover:text-gold ${
+                  isScrolled ? 'text-foreground' : 'text-primary-foreground'
+                }`}
+              >
+                {link.label}
+              </a>
+            ) : (
+              <Link
+                key={link.href}
+                to={link.href}
+                className={`font-sans text-sm font-medium transition-colors hover:text-gold ${
+                  isScrolled ? 'text-foreground' : 'text-primary-foreground'
+                }`}
+              >
+                {link.label}
+              </Link>
+            )
           ))}
-          <Button variant={isScrolled ? 'gold' : 'hero'} size="sm">
-            Reservar Ahora
-          </Button>
+          <a href="#contacto">
+            <Button variant={isScrolled ? 'gold' : 'hero'} size="sm">
+              Reservar Ahora
+            </Button>
+          </a>
         </nav>
 
         {/* Mobile Menu Button */}
@@ -80,18 +98,31 @@ const Header = () => {
         >
           <nav className="container mx-auto px-4 py-4 flex flex-col gap-4">
             {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="font-sans text-sm font-medium text-foreground hover:text-gold py-2"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {link.label}
-              </a>
+              link.isAnchor ? (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="font-sans text-sm font-medium text-foreground hover:text-gold py-2"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  className="font-sans text-sm font-medium text-foreground hover:text-gold py-2"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              )
             ))}
-            <Button variant="gold" className="w-full">
-              Reservar Ahora
-            </Button>
+            <a href="#contacto" onClick={() => setIsMobileMenuOpen(false)}>
+              <Button variant="gold" className="w-full">
+                Reservar Ahora
+              </Button>
+            </a>
           </nav>
         </motion.div>
       )}
