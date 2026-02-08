@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, Users, Home, Send, CheckCircle } from 'lucide-react';
+import { Calendar, Users, Home, MessageCircle, CheckCircle } from 'lucide-react';
 import { format, differenceInDays } from 'date-fns';
 import { es } from 'date-fns/locale';
 import { Button } from '@/components/ui/button';
@@ -10,6 +10,7 @@ import { Calendar as CalendarComponent } from '@/components/ui/calendar';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { cn } from '@/lib/utils';
+import { getWhatsAppLink } from '@/components/WhatsAppBubble';
 
 const properties = [
   { id: 'domo-andes', name: 'Domo Andes - Vista Montaña', price: 85000 },
@@ -22,16 +23,53 @@ const RentalBookingForm = () => {
   const [checkOut, setCheckOut] = useState<Date>();
   const [guests, setGuests] = useState('2');
   const [property, setProperty] = useState('');
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [comments, setComments] = useState('');
   const [submitted, setSubmitted] = useState(false);
+
+  const selectedProperty = properties.find(p => p.id === property);
+  const nights = checkIn && checkOut ? differenceInDays(checkOut, checkIn) : 0;
+  const estimatedTotal = selectedProperty && nights > 0 ? selectedProperty.price * nights : 0;
+
+  const buildWhatsAppMessage = () => {
+    let message = `🏠 *Nueva Consulta de Reserva*\n\n`;
+    message += `👤 *Nombre:* ${name}\n`;
+    message += `📧 *Email:* ${email}\n`;
+    message += `📱 *Teléfono:* ${phone}\n`;
+    message += `👥 *Huéspedes:* ${guests}\n`;
+    
+    if (selectedProperty) {
+      message += `🏡 *Propiedad:* ${selectedProperty.name}\n`;
+    }
+    
+    if (checkIn) {
+      message += `📅 *Check-in:* ${format(checkIn, "PPP", { locale: es })}\n`;
+    }
+    if (checkOut) {
+      message += `📅 *Check-out:* ${format(checkOut, "PPP", { locale: es })}\n`;
+    }
+    
+    if (nights > 0 && selectedProperty) {
+      message += `🌙 *Noches:* ${nights}\n`;
+      message += `💰 *Total Estimado:* $${estimatedTotal.toLocaleString()} ARS\n`;
+    }
+    
+    if (comments) {
+      message += `\n💬 *Comentarios:* ${comments}`;
+    }
+    
+    return message;
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const message = buildWhatsAppMessage();
+    window.open(getWhatsAppLink(message), '_blank');
     setSubmitted(true);
   };
 
-  const nights = checkIn && checkOut ? differenceInDays(checkOut, checkIn) : 0;
-  const selectedProperty = properties.find(p => p.id === property);
-  const estimatedTotal = selectedProperty && nights > 0 ? selectedProperty.price * nights : 0;
 
   if (submitted) {
     return (
@@ -60,13 +98,13 @@ const RentalBookingForm = () => {
           <label className="font-sans text-sm font-medium mb-2 block">
             Nombre Completo
           </label>
-          <Input placeholder="Tu nombre" required />
+          <Input placeholder="Tu nombre" required value={name} onChange={(e) => setName(e.target.value)} />
         </div>
         <div>
           <label className="font-sans text-sm font-medium mb-2 block">
             Email
           </label>
-          <Input type="email" placeholder="tu@email.com" required />
+          <Input type="email" placeholder="tu@email.com" required value={email} onChange={(e) => setEmail(e.target.value)} />
         </div>
       </div>
 
@@ -75,7 +113,7 @@ const RentalBookingForm = () => {
           <label className="font-sans text-sm font-medium mb-2 block">
             Teléfono
           </label>
-          <Input placeholder="+54 9 261..." required />
+          <Input placeholder="+54 9 261..." required value={phone} onChange={(e) => setPhone(e.target.value)} />
         </div>
         <div>
           <label className="font-sans text-sm font-medium mb-2 block">
@@ -205,12 +243,14 @@ const RentalBookingForm = () => {
         <Textarea
           placeholder="¿Alguna preferencia o necesidad especial? ¿Viajas con mascotas?"
           rows={3}
+          value={comments}
+          onChange={(e) => setComments(e.target.value)}
         />
       </div>
 
       <Button type="submit" variant="gold" size="lg" className="w-full">
-        <Send className="w-4 h-4 mr-2" />
-        Solicitar Reserva
+        <MessageCircle className="w-4 h-4 mr-2" />
+        Enviar por WhatsApp
       </Button>
 
       <p className="text-xs text-muted-foreground text-center">

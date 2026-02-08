@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Instagram, Facebook } from 'lucide-react';
 import RentalBookingForm from '@/components/RentalBookingForm';
+import { PHONE_NUMBER, getWhatsAppLink } from '@/components/WhatsAppBubble';
 
 const ContactSection = () => {
   return (
@@ -27,15 +28,20 @@ const ContactSection = () => {
             </p>
 
             <div className="space-y-6 mb-8">
-              <div className="flex items-center gap-4">
+              <a 
+                href={getWhatsAppLink('Hola! Me gustaría consultar por los alquileres temporarios.')}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-4 hover:opacity-80 transition-opacity"
+              >
                 <div className="w-12 h-12 rounded-full bg-gold/20 flex items-center justify-center">
                   <Phone className="w-5 h-5 text-gold" />
                 </div>
                 <div>
-                  <p className="font-sans text-sm text-primary-foreground/60">Teléfono</p>
-                  <p className="font-sans font-medium">+54 261 555 0123</p>
+                  <p className="font-sans text-sm text-primary-foreground/60">WhatsApp</p>
+                  <p className="font-sans font-medium">+54 {PHONE_NUMBER}</p>
                 </div>
-              </div>
+              </a>
 
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-full bg-gold/20 flex items-center justify-center">

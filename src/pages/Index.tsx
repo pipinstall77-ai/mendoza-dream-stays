@@ -9,11 +9,13 @@ import PaymentSection from '@/components/PaymentSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 import VendimiaPromoPopup from '@/components/VendimiaPromoPopup';
+import WhatsAppBubble from '@/components/WhatsAppBubble';
 
 const Index = () => {
   return (
     <div className="min-h-screen">
       <VendimiaPromoPopup />
+      <WhatsAppBubble />
       <Header />
       <HeroSection />
       <VendimiaBanner />
