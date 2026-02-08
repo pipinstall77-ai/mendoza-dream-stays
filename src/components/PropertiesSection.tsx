@@ -1,52 +1,8 @@
 import { motion } from 'framer-motion';
 import PropertyCard from './PropertyCard';
-import heroDomos from '@/assets/hero-domos.jpg';
-import domoInterior from '@/assets/domo-interior.jpg';
-import departamentoCiudad from '@/assets/departamento-ciudad.jpg';
+import { properties } from '@/data/properties';
 
 const PropertiesSection = () => {
-  const properties = [
-    {
-      title: 'Domo Aurora',
-      location: 'Cordillera de los Andes, Mendoza',
-      description:
-        'Sumérgete en la naturaleza desde este espectacular domo geodésico. Vistas panorámicas de las montañas, cielo estrellado y todo el confort moderno.',
-      image: heroDomos,
-      guests: 4,
-      bedrooms: 1,
-      bathrooms: 1,
-      amenities: ['WiFi', 'Kitchen', 'Parking', 'AC'],
-      price: 'USD 180',
-      featured: true,
-    },
-    {
-      title: 'Domo Cóndor',
-      location: 'Cordillera de los Andes, Mendoza',
-      description:
-        'Experiencia única de glamping con jacuzzi privado y desayuno incluido. Perfecto para parejas y viajes románticos.',
-      image: domoInterior,
-      guests: 2,
-      bedrooms: 1,
-      bathrooms: 1,
-      amenities: ['WiFi', 'Kitchen', 'Parking'],
-      price: 'USD 150',
-      featured: false,
-    },
-    {
-      title: 'Departamento Centro',
-      location: 'Centro, Ciudad de Mendoza',
-      description:
-        'Elegante departamento en pleno corazón de Mendoza. A pasos de restaurantes, bodegas y principales atracciones turísticas.',
-      image: departamentoCiudad,
-      guests: 4,
-      bedrooms: 2,
-      bathrooms: 1,
-      amenities: ['WiFi', 'Kitchen', 'AC', 'Parking'],
-      price: 'USD 120',
-      featured: false,
-    },
-  ];
-
   return (
     <section id="propiedades" className="py-24 bg-background">
       <div className="container mx-auto px-4">
@@ -69,8 +25,21 @@ const PropertiesSection = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {properties.map((property, index) => (
-            <PropertyCard key={index} {...property} />
+          {properties.map((property) => (
+            <PropertyCard
+              key={property.id}
+              id={property.id}
+              title={property.title}
+              location={property.location}
+              description={property.description}
+              image={property.image}
+              guests={property.guests}
+              bedrooms={property.bedrooms}
+              bathrooms={property.bathrooms}
+              amenities={property.amenities}
+              price={property.price}
+              featured={property.featured}
+            />
           ))}
         </div>
       </div>
