@@ -1,5 +1,6 @@
 import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
+import VendimiaBanner from '@/components/VendimiaBanner';
 import PropertiesSection from '@/components/PropertiesSection';
 import ServicesSection from '@/components/ServicesSection';
 import ToursPromoSection from '@/components/ToursPromoSection';
@@ -15,6 +16,7 @@ const Index = () => {
       <VendimiaPromoPopup />
       <Header />
       <HeroSection />
+      <VendimiaBanner />
       <PropertiesSection />
       <ServicesSection />
       <ToursPromoSection />
