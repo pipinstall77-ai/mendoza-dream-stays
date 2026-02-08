@@ -7,10 +7,12 @@ import TestimonialsSection from '@/components/TestimonialsSection';
 import PaymentSection from '@/components/PaymentSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
+import VendimiaPromoPopup from '@/components/VendimiaPromoPopup';
 
 const Index = () => {
   return (
     <div className="min-h-screen">
+      <VendimiaPromoPopup />
       <Header />
       <HeroSection />
       <PropertiesSection />
