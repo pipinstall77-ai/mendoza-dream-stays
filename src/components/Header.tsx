@@ -71,7 +71,11 @@ const Header = () => {
               </Link>
             )
           ))}
-          <a href="#contacto">
+          <a 
+            href="https://wa.me/5492617043391?text=Hola!%20Me%20interesa%20reservar%20un%20alojamiento%20en%20Mendoza."
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Button variant={isScrolled ? 'gold' : 'hero'} size="sm">
               Reservar Ahora
             </Button>
@@ -121,7 +125,12 @@ const Header = () => {
                 </Link>
               )
             ))}
-            <a href="#contacto" onClick={() => setIsMobileMenuOpen(false)}>
+            <a 
+              href="https://wa.me/5492617043391?text=Hola!%20Me%20interesa%20reservar%20un%20alojamiento%20en%20Mendoza."
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
               <Button variant="gold" className="w-full">
                 Reservar Ahora
               </Button>
