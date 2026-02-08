@@ -1,8 +1,10 @@
 import { motion } from 'framer-motion';
 import { MapPin, Users, Bed, Bath, Wifi, Car, Snowflake, ChefHat } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 
 interface PropertyCardProps {
+  id: string;
   title: string;
   location: string;
   description: string;
@@ -23,6 +25,7 @@ const amenityIcons: Record<string, React.ReactNode> = {
 };
 
 const PropertyCard = ({
+  id,
   title,
   location,
   description,
@@ -45,7 +48,7 @@ const PropertyCard = ({
       }`}
     >
       {/* Image */}
-      <div className="relative overflow-hidden aspect-[4/3] lg:aspect-auto">
+      <Link to={`/propiedad/${id}`} className="relative overflow-hidden aspect-[4/3] lg:aspect-auto block">
         <img
           src={image}
           alt={title}
@@ -56,7 +59,7 @@ const PropertyCard = ({
             Destacado
           </div>
         )}
-      </div>
+      </Link>
 
       {/* Content */}
       <div className="p-6 lg:p-8 flex flex-col">
@@ -65,9 +68,11 @@ const PropertyCard = ({
           <span className="font-sans text-sm">{location}</span>
         </div>
 
-        <h3 className="font-serif text-2xl lg:text-3xl font-bold text-foreground mb-3">
-          {title}
-        </h3>
+        <Link to={`/propiedad/${id}`}>
+          <h3 className="font-serif text-2xl lg:text-3xl font-bold text-foreground mb-3 hover:text-gold transition-colors">
+            {title}
+          </h3>
+        </Link>
 
         <p className="font-sans text-muted-foreground text-sm leading-relaxed mb-4 flex-grow">
           {description}
@@ -108,9 +113,11 @@ const PropertyCard = ({
             <span className="font-serif text-2xl font-bold text-foreground">{price}</span>
             <span className="text-muted-foreground text-sm"> /noche</span>
           </div>
-          <Button variant="gold" size="sm">
-            Ver Detalles
-          </Button>
+          <Link to={`/propiedad/${id}`}>
+            <Button variant="gold" size="sm">
+              Ver Detalles
+            </Button>
+          </Link>
         </div>
       </div>
     </motion.div>
