@@ -11,6 +11,7 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { cn } from '@/lib/utils';
 import { getWhatsAppLink } from '@/components/WhatsAppBubble';
+import { supabase } from '@/integrations/supabase/client';
 
 const properties = [
   { id: 'domo-andes', name: 'Domo Andes - Vista Montaña', price: 85000 },
@@ -63,8 +64,30 @@ const RentalBookingForm = () => {
     return message;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Send email notification
+    try {
+      await supabase.functions.invoke('send-booking-email', {
+        body: {
+          name,
+          email,
+          phone,
+          guests,
+          property: selectedProperty?.name,
+          checkIn: checkIn ? format(checkIn, "PPP", { locale: es }) : undefined,
+          checkOut: checkOut ? format(checkOut, "PPP", { locale: es }) : undefined,
+          nights: nights > 0 ? nights : undefined,
+          estimatedTotal: estimatedTotal > 0 ? estimatedTotal : undefined,
+          comments: comments || undefined,
+        },
+      });
+    } catch (err) {
+      console.error('Error sending email:', err);
+    }
+
+    // Also open WhatsApp
     const message = buildWhatsAppMessage();
     window.open(getWhatsAppLink(message), '_blank');
     setSubmitted(true);
