@@ -366,10 +366,16 @@ const Tours = () => {
               Ideal para empresas, familias numerosas o grupos de amigos.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button variant="outline" className="border-white text-white hover:bg-white hover:text-mountain">
-                <Phone className="w-4 h-4 mr-2" />
-                +54 261 500 7373
-              </Button>
+              <a
+                href={getWhatsAppLink('Hola, estoy interesado/a en contratar un tour grupal.')}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button variant="outline" className="border-white text-white hover:bg-white hover:text-mountain">
+                  <MessageCircle className="w-4 h-4 mr-2" />
+                  +54 261 500 7373
+                </Button>
+              </a>
               <Button variant="outline" className="border-white text-white hover:bg-white hover:text-mountain">
                 <Mail className="w-4 h-4 mr-2" />
                 temporarios@grupo-nexus.com.ar
