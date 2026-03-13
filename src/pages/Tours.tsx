@@ -376,7 +376,7 @@ const Tours = () => {
               </Button>
               <Button variant="outline" className="border-white text-white hover:bg-white hover:text-mountain">
                 <Mail className="w-4 h-4 mr-2" />
-                tours@refugiomendoza.com
+                temporarios@grupo-nexus.com.ar
               </Button>
             </div>
           </motion.div>
