@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Clock, Users, MapPin, Star, ChevronRight, Calendar, Phone, Mail, CheckCircle } from 'lucide-react';
+import { Clock, Users, MapPin, Star, ChevronRight, Calendar, Phone, Mail, CheckCircle, MessageCircle } from 'lucide-react';
 import { format } from 'date-fns';
 import { es } from 'date-fns/locale';
 import Header from '@/components/Header';
@@ -13,6 +13,7 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { cn } from '@/lib/utils';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { getWhatsAppLink } from '@/components/WhatsAppBubble';
 
 import tourBodegas from '@/assets/tour-bodegas.jpg';
 import tourMontana from '@/assets/tour-montana.jpg';
@@ -326,25 +327,18 @@ const Tours = () => {
                           <span className="font-sans text-sm text-muted-foreground font-normal"> /persona</span>
                         </p>
                       </div>
-                      <Dialog>
-                        <DialogTrigger asChild>
-                          <Button 
-                            className="bg-mountain hover:bg-mountain/90 text-white gap-2"
-                            onClick={() => setSelectedTour(tour)}
-                          >
-                            Reservar
-                            <ChevronRight className="w-4 h-4" />
-                          </Button>
-                        </DialogTrigger>
-                        <DialogContent className="sm:max-w-lg max-h-[90vh] overflow-y-auto">
-                          <DialogHeader>
-                            <DialogTitle className="font-serif text-2xl">Reservar Tour</DialogTitle>
-                          </DialogHeader>
-                          {selectedTour && (
-                            <TourBookingForm tour={selectedTour} onClose={() => setSelectedTour(null)} />
-                          )}
-                        </DialogContent>
-                      </Dialog>
+                      <a
+                        href={getWhatsAppLink(`Hola, estoy interesado/a en el tour *${tour.title}* (${tour.subtitle})`)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Button 
+                          className="bg-mountain hover:bg-mountain/90 text-white gap-2"
+                        >
+                          <MessageCircle className="w-4 h-4" />
+                          Reservar
+                        </Button>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -372,10 +366,16 @@ const Tours = () => {
               Ideal para empresas, familias numerosas o grupos de amigos.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button variant="outline" className="border-white text-white hover:bg-white hover:text-mountain">
-                <Phone className="w-4 h-4 mr-2" />
-                +54 261 555 0123
-              </Button>
+              <a
+                href={getWhatsAppLink('Hola, estoy interesado/a en contratar un tour grupal.')}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button variant="outline" className="border-white text-white hover:bg-white hover:text-mountain">
+                  <MessageCircle className="w-4 h-4 mr-2" />
+                  +54 261 500 7373
+                </Button>
+              </a>
               <Button variant="outline" className="border-white text-white hover:bg-white hover:text-mountain">
                 <Mail className="w-4 h-4 mr-2" />
                 temporarios@grupo-nexus.com.ar

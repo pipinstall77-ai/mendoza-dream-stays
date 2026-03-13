@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
-import { MapPin, Users, Bed, Bath, Wifi, Car, Snowflake, ChefHat } from 'lucide-react';
+import { MapPin, Users, Bed, Bath, Wifi, Car, Snowflake, ChefHat, MessageCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import { getWhatsAppLink } from '@/components/WhatsAppBubble';
 
 interface PropertyCardProps {
   id: string;
@@ -115,11 +116,23 @@ const PropertyCard = ({
             <span className="font-serif text-2xl font-bold text-foreground">{price}</span>
             <span className="text-muted-foreground text-sm"> /noche</span>
           </div>
-          <Link to={`/propiedad/${id}`}>
-            <Button variant="gold" size="sm">
-              Ver Detalles
-            </Button>
-          </Link>
+          <div className="flex gap-2">
+            <Link to={`/propiedad/${id}`}>
+              <Button variant="outline" size="sm">
+                Ver Detalles
+              </Button>
+            </Link>
+            <a
+              href={getWhatsAppLink(`Hola, estoy interesado/a en *${title}* (${location})`)}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button variant="gold" size="sm">
+                <MessageCircle className="w-4 h-4 mr-1" />
+                Reservar
+              </Button>
+            </a>
+          </div>
         </div>
       </div>
     </motion.div>
