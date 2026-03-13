@@ -327,25 +327,18 @@ const Tours = () => {
                           <span className="font-sans text-sm text-muted-foreground font-normal"> /persona</span>
                         </p>
                       </div>
-                      <Dialog>
-                        <DialogTrigger asChild>
-                          <Button 
-                            className="bg-mountain hover:bg-mountain/90 text-white gap-2"
-                            onClick={() => setSelectedTour(tour)}
-                          >
-                            Reservar
-                            <ChevronRight className="w-4 h-4" />
-                          </Button>
-                        </DialogTrigger>
-                        <DialogContent className="sm:max-w-lg max-h-[90vh] overflow-y-auto">
-                          <DialogHeader>
-                            <DialogTitle className="font-serif text-2xl">Reservar Tour</DialogTitle>
-                          </DialogHeader>
-                          {selectedTour && (
-                            <TourBookingForm tour={selectedTour} onClose={() => setSelectedTour(null)} />
-                          )}
-                        </DialogContent>
-                      </Dialog>
+                      <a
+                        href={getWhatsAppLink(`Hola, estoy interesado/a en el tour *${tour.title}* (${tour.subtitle})`)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Button 
+                          className="bg-mountain hover:bg-mountain/90 text-white gap-2"
+                        >
+                          <MessageCircle className="w-4 h-4" />
+                          Reservar
+                        </Button>
+                      </a>
                     </div>
                   </div>
                 </div>
