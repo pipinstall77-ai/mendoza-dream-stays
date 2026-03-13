@@ -67,7 +67,11 @@ const RentalBookingForm = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Send email notification
+    // Open WhatsApp first (must be in direct user interaction context to avoid popup block)
+    const message = buildWhatsAppMessage();
+    window.open(getWhatsAppLink(message), '_blank');
+    
+    // Send email notification in background
     try {
       await supabase.functions.invoke('send-booking-email', {
         body: {
@@ -87,9 +91,6 @@ const RentalBookingForm = () => {
       console.error('Error sending email:', err);
     }
 
-    // Also open WhatsApp
-    const message = buildWhatsAppMessage();
-    window.open(getWhatsAppLink(message), '_blank');
     setSubmitted(true);
   };
 
