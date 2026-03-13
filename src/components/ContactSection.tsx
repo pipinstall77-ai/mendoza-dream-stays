@@ -49,7 +49,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <p className="font-sans text-sm text-primary-foreground/60">Email</p>
-                  <p className="font-sans font-medium">reservas@refugiomendoza.com</p>
+                  <p className="font-sans font-medium">info@grupo-nexus.com.ar</p>
                 </div>
               </div>
 
