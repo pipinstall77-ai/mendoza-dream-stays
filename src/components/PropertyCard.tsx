@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
-import { MapPin, Users, Bed, Bath, Wifi, Car, Snowflake, ChefHat } from 'lucide-react';
+import { MapPin, Users, Bed, Bath, Wifi, Car, Snowflake, ChefHat, MessageCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import { getWhatsAppLink } from '@/components/WhatsAppBubble';
 
 interface PropertyCardProps {
   id: string;
