@@ -213,6 +213,8 @@ const PropertyDetail = () => {
                         src={image}
                         alt={`${property.title} - Foto ${index + 1}`}
                         className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                        loading="lazy"
+                        decoding="async"
                       />
                     </button>
                   ))}

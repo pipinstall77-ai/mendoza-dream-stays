@@ -13,6 +13,8 @@ const VendimiaBanner = () => {
               src={vendimiaImage}
               alt="Fiesta de la Vendimia 2026"
               className="w-full h-full object-cover"
+              loading="lazy"
+              decoding="async"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-foreground/90 via-foreground/80 to-foreground/60" />
           </div>

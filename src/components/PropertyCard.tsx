@@ -53,6 +53,8 @@ const PropertyCard = ({
           src={image}
           alt={title}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+          loading="lazy"
+          decoding="async"
         />
         {featured && (
           <div className="absolute top-4 left-4 bg-gold text-foreground px-3 py-1 rounded-full text-xs font-semibold">
