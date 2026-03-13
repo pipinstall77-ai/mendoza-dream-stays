@@ -56,6 +56,8 @@ const PropertyDetail = () => {
             src={property.gallery[currentImage]}
             alt={property.title}
             className="w-full h-full object-cover"
+            loading="eager"
+            decoding="async"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent" />
           
