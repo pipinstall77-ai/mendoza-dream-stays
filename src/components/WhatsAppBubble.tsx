@@ -32,7 +32,7 @@ export const getWhatsAppLink = (message: string) => {
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 };
 
-export const PHONE_NUMBER = '261 704 3391';
-export const PHONE_NUMBER_RAW = '2617043391';
+export const PHONE_NUMBER = '261 500 7373';
+export const PHONE_NUMBER_RAW = '2615007373';
 
 export default WhatsAppBubble;

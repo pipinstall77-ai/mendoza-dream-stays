@@ -374,7 +374,7 @@ const Tours = () => {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button variant="outline" className="border-white text-white hover:bg-white hover:text-mountain">
                 <Phone className="w-4 h-4 mr-2" />
-                +54 261 555 0123
+                +54 261 500 7373
               </Button>
               <Button variant="outline" className="border-white text-white hover:bg-white hover:text-mountain">
                 <Mail className="w-4 h-4 mr-2" />
