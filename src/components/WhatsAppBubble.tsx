@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { MessageCircle } from 'lucide-react';
 
-const WHATSAPP_NUMBER = '5492617043391';
+const WHATSAPP_NUMBER = '5492615007373';
 const DEFAULT_MESSAGE = 'Hola! Me interesa consultar por los alquileres temporarios en Mendoza.';
 
 const WhatsAppBubble = () => {
