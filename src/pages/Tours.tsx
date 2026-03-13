@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Clock, Users, MapPin, Star, ChevronRight, Calendar, Phone, Mail, CheckCircle } from 'lucide-react';
+import { Clock, Users, MapPin, Star, ChevronRight, Calendar, Phone, Mail, CheckCircle, MessageCircle } from 'lucide-react';
 import { format } from 'date-fns';
 import { es } from 'date-fns/locale';
 import Header from '@/components/Header';
@@ -13,6 +13,7 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { cn } from '@/lib/utils';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { getWhatsAppLink } from '@/components/WhatsAppBubble';
 
 import tourBodegas from '@/assets/tour-bodegas.jpg';
 import tourMontana from '@/assets/tour-montana.jpg';
