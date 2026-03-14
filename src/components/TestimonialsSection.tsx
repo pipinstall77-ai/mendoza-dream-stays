@@ -46,7 +46,7 @@ const testimonials = [
     name: 'Diego Morales',
     location: 'Lima, Perú',
     rating: 5,
-    text: 'Primera vez en Mendoza y gracias a RefugioMendoza conocimos los mejores lugares. El Puente del Inca y el Aconcagua nos dejaron sin palabras.',
+    text: 'Primera vez en Mendoza y gracias a Temporarios Mendoza conocimos los mejores lugares. El Puente del Inca y el Aconcagua nos dejaron sin palabras.',
     property: 'Tour Alta Montaña',
     date: 'Agosto 2024',
   },

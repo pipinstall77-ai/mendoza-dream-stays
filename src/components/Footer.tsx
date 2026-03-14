@@ -5,7 +5,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div className="md:col-span-2">
             <span className="font-serif text-2xl font-bold mb-4 block">
-              Refugio<span className="text-gold">Mendoza</span>
+              Temporarios<span className="text-gold">Mendoza</span>
             </span>
             <p className="font-sans text-sm text-primary-foreground/70 max-w-md">
               Experiencias únicas de hospedaje en Mendoza. Desde domos de lujo en la montaña 
@@ -63,7 +63,7 @@ const Footer = () => {
 
         <div className="pt-8 border-t border-primary-foreground/10 text-center">
           <p className="font-sans text-sm text-primary-foreground/50">
-            © 2025 RefugioMendoza. Todos los derechos reservados.
+            © 2025 TemporariosMendoza. Todos los derechos reservados.
           </p>
         </div>
       </div>

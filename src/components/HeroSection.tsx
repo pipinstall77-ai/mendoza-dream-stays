@@ -38,9 +38,9 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="font-serif text-5xl md:text-7xl lg:text-8xl font-bold text-primary-foreground mb-6 leading-tight"
         >
-          Tu Refugio en
+          Alquileres Temporarios
           <br />
-          <span className="text-gradient-gold">Mendoza</span>
+          <span className="text-gradient-gold">en Mendoza</span>
         </motion.h1>
 
         <motion.p
