@@ -55,7 +55,7 @@ const handler = async (req: Request): Promise<Response> => {
     `;
 
     const emailResponse = await resend.emails.send({
-      from: "Reservas <onboarding@resend.dev>",
+      from: "Reservas <reservas@temporarios.grupo-nexus.com.ar>",
       to: ["info@grupo-nexus.com.ar"],
       subject: `Nueva consulta de reserva - ${data.name}${data.property ? ` - ${data.property}` : ''}`,
       html: htmlContent,
