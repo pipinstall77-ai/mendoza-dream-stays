@@ -63,7 +63,7 @@ const Footer = () => {
 
         <div className="pt-8 border-t border-primary-foreground/10 text-center">
           <p className="font-sans text-sm text-primary-foreground/50">
-            © 2025 RefugioMendoza. Todos los derechos reservados.
+            © 2025 TemporariosMendoza. Todos los derechos reservados.
           </p>
         </div>
       </div>
