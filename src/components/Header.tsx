@@ -73,7 +73,7 @@ const Header = () => {
             )
           ))}
           <a 
-            href="https://wa.me/5492617043391?text=Hola!%20Me%20interesa%20reservar%20un%20alojamiento%20en%20Mendoza."
+            href={getWhatsAppLink('Hola! Me interesa reservar un alojamiento en Mendoza.')}
             target="_blank"
             rel="noopener noreferrer"
           >
