@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Instagram, Facebook } from 'lucide-react';
+import { Mail, Phone, MapPin } from 'lucide-react';
 import RentalBookingForm from '@/components/RentalBookingForm';
 import { PHONE_NUMBER, getWhatsAppLink } from '@/components/WhatsAppBubble';
 
