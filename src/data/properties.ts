@@ -48,7 +48,7 @@ export const properties: Property[] = [
       Ideal para parejas o familias pequeñas que buscan desconectarse de la rutina y reconectarse con la naturaleza.
     `,
     image: heroDomos,
-    gallery: [heroDomos, domoInterior, heroDomos, domoInterior],
+    gallery: [heroDomos, domoInterior1, domoInterior2, domoInterior],
     guests: 4,
     bedrooms: 1,
     bathrooms: 1,
