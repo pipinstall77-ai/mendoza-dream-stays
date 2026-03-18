@@ -1,5 +1,7 @@
 import heroDomos from '@/assets/hero-domos.jpg';
 import domoInterior from '@/assets/domo-interior.jpg';
+import domoInterior1 from '@/assets/domo-interior-1.jpg';
+import domoInterior2 from '@/assets/domo-interior-2.jpg';
 import deptoCocina1 from '@/assets/depto-cocina-1.jpg';
 import deptoLiving1 from '@/assets/depto-living-1.jpg';
 import deptoLiving2 from '@/assets/depto-living-2.jpg';
@@ -46,7 +48,7 @@ export const properties: Property[] = [
       Ideal para parejas o familias pequeñas que buscan desconectarse de la rutina y reconectarse con la naturaleza.
     `,
     image: heroDomos,
-    gallery: [heroDomos, domoInterior, heroDomos, domoInterior],
+    gallery: [heroDomos, domoInterior1, domoInterior2, domoInterior],
     guests: 4,
     bedrooms: 1,
     bathrooms: 1,
