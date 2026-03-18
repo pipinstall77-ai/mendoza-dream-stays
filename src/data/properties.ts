@@ -123,8 +123,8 @@ export const properties: Property[] = [
       
       El edificio cuenta con seguridad 24hs, cochera cubierta y todos los servicios necesarios para una estadía sin preocupaciones.
     `,
-    image: departamentoCiudad,
-    gallery: [departamentoCiudad, departamentoCiudad, departamentoCiudad, departamentoCiudad],
+    image: deptoLiving1,
+    gallery: [deptoLiving1, deptoLiving2, deptoCocina1, deptoCocina2, deptoCocina3, deptoCocina4, deptoDormitorio1, deptoDormitorio2, deptoBano],
     guests: 4,
     bedrooms: 2,
     bathrooms: 1,
