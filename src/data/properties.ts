@@ -1,6 +1,14 @@
 import heroDomos from '@/assets/hero-domos.jpg';
 import domoInterior from '@/assets/domo-interior.jpg';
-import departamentoCiudad from '@/assets/departamento-ciudad.jpg';
+import deptoCocina1 from '@/assets/depto-cocina-1.jpg';
+import deptoLiving1 from '@/assets/depto-living-1.jpg';
+import deptoLiving2 from '@/assets/depto-living-2.jpg';
+import deptoCocina2 from '@/assets/depto-cocina-2.jpg';
+import deptoCocina3 from '@/assets/depto-cocina-3.jpg';
+import deptoCocina4 from '@/assets/depto-cocina-4.jpg';
+import deptoBano from '@/assets/depto-bano.jpg';
+import deptoDormitorio1 from '@/assets/depto-dormitorio-1.jpg';
+import deptoDormitorio2 from '@/assets/depto-dormitorio-2.jpg';
 
 export interface Property {
   id: string;
@@ -115,8 +123,8 @@ export const properties: Property[] = [
       
       El edificio cuenta con seguridad 24hs, cochera cubierta y todos los servicios necesarios para una estadía sin preocupaciones.
     `,
-    image: departamentoCiudad,
-    gallery: [departamentoCiudad, departamentoCiudad, departamentoCiudad, departamentoCiudad],
+    image: deptoLiving1,
+    gallery: [deptoLiving1, deptoLiving2, deptoCocina1, deptoCocina2, deptoCocina3, deptoCocina4, deptoDormitorio1, deptoDormitorio2, deptoBano],
     guests: 4,
     bedrooms: 2,
     bathrooms: 1,
